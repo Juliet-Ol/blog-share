@@ -1,10 +1,16 @@
+from ensurepip import bootstrap
 from flask import Flask
-from .config import DevConfig
+from config import Config
+from flask_bootstrap import Bootstrap
+
+
 
 #initializing application
 app = Flask(__name__)
+app.config.from_object(Config)
 
-# Setting up configuration
-app.config.from_object(DevConfig)
 
-from app import views
+bootstrap = Bootstrap(app)
+
+
+from app import views, models
