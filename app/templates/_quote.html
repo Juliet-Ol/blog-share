@@ -1,0 +1,24 @@
+<table class="table table-striped">
+    <tr valign='top'>
+        <td width="30px">
+            <a href=" # ">
+                <img src=" {{ quote.author.avatar(36) }} ">
+            </a>
+        </td>
+        <td>
+            <span ># {{ quote.id }} </span>
+            <span>
+                
+                <a href="#">
+                    <span > {{ quote.author.username }} </span>  
+                </a>
+            </span>
+            said {{ moment(quote.timestamp).fromNow() }}:
+            <br>
+            <div>
+                {{ quote.content }}
+            </div>
+        </td>
+        
+    </tr>    
+</table>
