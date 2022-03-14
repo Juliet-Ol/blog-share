@@ -1,6 +1,6 @@
 from app import app
 import urllib.request,json
-from app.models import quote
+from app import quote
 
 Quote = quote.Quote
 
