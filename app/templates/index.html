@@ -15,4 +15,10 @@
         </p>
     </div>
 </div>
+<h3> Random Quotes</h3>
+<ul>
+   {% for random_quotes in random %}
+       <li>{{ random_quotes.title}}</li>
+   {% endfor %}
+</ul>
 {% endblock %}
