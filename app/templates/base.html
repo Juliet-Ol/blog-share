@@ -9,9 +9,10 @@
 <!-- The title of our application is defined here -->
 {% block title %}
     {% if title %}
-        {{ title }} - My app
+        {{ title }} - Blog Share
     {% else %}
-        Welcome to my app
+    <h1 align="center">Welcome to Blog Share</h1>
+    <img src="{{ url_for('static', filename='images/blog.jpg') }}" alt="">
     {% endif %}
 {% endblock %}
     
@@ -40,13 +41,14 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">            
                 <ul class="nav navbar-nav navbar-right">
-                <li><a href=" {{ url_for('index')}} "> Random Quotes</a></li>
+                <li><a href="{{ quote.url }}"> Random Quotes</a></li>
                 </ul>                       
             </div>
         </div>
     </nav>
 {% endblock %}
-    
+
+  
 <!-- Contents of all our pages will go here -->
 {% block content %}
     <div class="container">
