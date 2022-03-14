@@ -1,17 +1,17 @@
-from instance.config import RANDOM_QUOTES_URL
+# from instance.config import RANDOM_QUOTES_URL
 
-class Config:
+# class Config:
 
-    pass
-
-
-
-class ProdConfig(Config):
-
-    pass
+#     pass
 
 
-class DevConfig(Config):
+
+# class ProdConfig(Config):
+
+#     pass
 
 
-    DEBUG = True
+# class DevConfig(Config):
+
+
+#     DEBUG = True
