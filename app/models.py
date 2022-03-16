@@ -10,22 +10,6 @@ from app import db, login_manager
 
 
 
-# class User(db.Model):
-#     def __init__(self,id,username,email):
-#         self.id = id
-#         self.username = username
-#         self.email  = email
-
-#         def set_password(self, password):
-#             self.password_hash = generate_password_hash(password) 
-
-#     def __repr__(self):
-#         return f'User {self.id} {self.username}' 
-
-
-
-
-
 @login_manager.user_loader
 def load_user(id):
     return User.query.get(int(id))
