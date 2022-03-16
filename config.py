@@ -18,10 +18,11 @@ class Config ():
 
 class ProdConfig(Config):
 
-    pass
+    SQLALCHEMY_DATABASE_URI = 'postgresql+pysopg2://bwdjvsasrlaeen:18d1081283ae243f3f0cb43119c2906ffb29f01255dc6d19bfb89f414c70af73@ec2-44-194-167-63.compute-1.amazonaws.com:5432/ddq6aoibtd4ceh'
 
 
 class DevConfig(Config):
+    SQLALCHEMY_DATABASE_URI = 'postgresql+pysopg2://juliet:juliet@localhost/quote'
 
     DEBUG = True
 

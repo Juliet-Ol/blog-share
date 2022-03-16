@@ -58,6 +58,18 @@
     
 <!-- All scripts will go here -->
 {% block scripts %}
-    {{  super() }}
+<script>
+    const quote =document.querySelector("#quote");
+    const author =document.querySelector("#author");
+    const btnq =document.querySelector("#btnq");
+    btnq.addEventListener("click",getQuote);
+    function getQuote(){
+      fetch("http://quotes.stormconsultancy.co.uk/random.json").then(res =>(res.json()))
+      .then(data =>{
+        quote.innerHTML = `"${data.quote}"`;
+        author.innerHTML= data.author;
+      })
+    }
+  </script>
         
 {% endblock %}

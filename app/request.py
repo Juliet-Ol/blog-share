@@ -5,7 +5,7 @@ from app import quote
 Quote = quote.Quote
 
 # Getting the quote base url
-random_quotes_url = app.config['RANDOM_QUOTES_URL']
+random_quotes_url = 'http://quotes.stormconsultancy.co.uk/random.json' # app.config['RANDOM_QUOTES_URL']
 
 def get_random_quotes():
 
