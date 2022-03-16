@@ -19,4 +19,4 @@ class RegistrationForm(FlaskForm):
 class QuoteForm(FlaskForm):
     content = TextAreaField('Quote', validators=[DataRequired()])    
     submit = SubmitField('Submit') 
-    comment = TextAreaField('comment')          
+    # comment = TextAreaField('comment')          

@@ -1,7 +1,7 @@
 from urllib import request
 from flask import render_template, redirect,url_for, flash
 from app import app, forms, db
-from app.models import  User
+from app.models import  User, Quote
 from app.forms import LoginForm, RegistrationForm, QuoteForm
 from flask_login import current_user, login_user
 from .request import get_random_quotes
@@ -14,11 +14,10 @@ def index():
     # Getting random quotes
 
     random_quotes = get_random_quotes()
-    print(random_quotes)
 
    
     title = 'Home - Quotes and more Quotes'
-    return render_template('index.html', title = title, random = random_quotes )
+    return render_template('index.html', title = title, random = random_quotes, user = current_user )
 
 @app.route('/login', methods = ['GET', 'POST'])    
 def login():
@@ -46,25 +45,18 @@ def register():
     return render_template('register.html', title='Register', form=form)    
 
 
-@app.route('/_quote', methods = ['GET', 'POST'])    
+@app.route('/quote', methods = ['GET', 'POST'])    
 def quote():
-    form = QuoteForm()
+    quoteForm = QuoteForm()
+    quotes = Quote.query.all()
 
-    if form.validate_on_submit():
+    if quoteForm.validate_on_submit():
         print('here')
-        user = User(id=1, username=form.username.data, email=form.email.data)
-        user.set_password(form.password.data)
-        db.session.add(user)
+        quote = Quote(content=quoteForm.content.data)
+        db.session.add(quote)
         db.session.commit()
-        flash(f'Quote {user.username}')
-        return redirect(url_for('login'))
+        return redirect('/quote')
         
-    return render_template('_quote.html', title='Quote', form=form)       
-
-
-
-
-
-
+    return render_template('quote.html', title='Quote', user=current_user, quoteForm=quoteForm, quotes=quotes)       
 
       

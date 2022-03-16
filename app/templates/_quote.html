@@ -2,7 +2,7 @@
     <tr valign='top'>
         <td width="30px">
             <a href=" # ">
-                <img src=" {{ quote.author.avatar(36) }} ">
+                <img style="border-radius: 50%;width: 60px;" src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png">
             </a>
         </td>
         <td>
@@ -10,10 +10,10 @@
             <span>
                 
                 <a href="#">
-                    <span > {{ quote.author.username }} </span>  
+                    <!-- <span > {{ quote.author.username }} </span>   -->
                 </a>
             </span>
-            said {{ moment(quote.timestamp).fromNow() }}:
+            said {{ quote.timestamp }}:
             <br>
             <div>
                 {{ quote.content }}
