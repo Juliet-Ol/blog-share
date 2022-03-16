@@ -1,7 +1,7 @@
 
  
 from urllib import response
-from sqlalchemy import ForeignKey
+from sqlalchemy import ForeignKey, Integer
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
@@ -17,7 +17,9 @@ def load_user(id):
 class User(UserMixin, db.Model):
     __tablename__ = 'users'
 
-    id = db.Column(db.Integer,primary_key = True)
+    id = db.Column(db.Integer().with_variant(Integer, "sqlite"), primary_key=True)
+
+    # id = db.Column(db.Integer,primary_key = True)
     username = db.Column(db.String(255),unique=True, nullable=False, index = True)
     email = db.Column(db.String(255),unique = True,index = True, nullable=False)    
     password_hash = db.Column(db.String(255), nullable=False)

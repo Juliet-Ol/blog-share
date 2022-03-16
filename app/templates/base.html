@@ -51,9 +51,24 @@
 
   
 <!-- Contents of all our pages will go here -->
+
+
 {% block content %}
     <div class="container">
-        {% block app_context %}{% endblock %}
+        {% with messages = get_flashed_messages()%}
+            {% if messages %}
+                <div class="row">
+                    <div class="col-sm-12">
+                        {% for message in messages %}
+                        <div class="alert alert-info" role="alert">
+                            {{message}}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endwith%}
+{% block app_context %}{% endblock %}
     </div>
 {% endblock %}
     

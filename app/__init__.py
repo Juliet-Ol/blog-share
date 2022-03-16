@@ -20,6 +20,8 @@ migrate = Migrate()
 app = Flask(__name__)
 app.config.from_object(config_options['development'])
 
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///blog.db"
+
 bootstrap.init_app(app)
 login_manager.init_app(app)
 db.init_app(app)
