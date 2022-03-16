@@ -10,9 +10,6 @@ from .request import get_random_quotes
 
 @app.route('/')
 def index():
-    db.session.query(User).delete()
-    db.session.commit()
-
     # Getting random quotes
 
     random_quotes = get_random_quotes()
